@@ -87,6 +87,7 @@ function prepareCanvas() {
 
     document.addEventListener("touchmove", function (e) {
         if (isPainting) {
+            e.preventDefault(); // stop scrolling
             previousX = currentX;
             previousY = currentY;
             currentX = e.touches[0].clientX - canvas.offsetLeft;
