@@ -68,6 +68,7 @@ function prepareCanvas() {
     
     // Touch events for mobile web
     document.addEventListener("touchstart", function (e) {
+        e.preventDefault()
         isPainting = true;
         currentX = e.touches[0].clientX - canvas.offsetLeft;
         currentY = e.touches[0].clientY - canvas.offsetTop;
