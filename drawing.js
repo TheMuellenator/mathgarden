@@ -64,6 +64,37 @@ function prepareCanvas() {
       document.addEventListener('mouseleave', function (e) {
         isPainting = false;
     });
+    
+    
+    // Touch events for mobile web
+    document.addEventListener("touchstart", function (e) {
+        isPainting = true;
+        currentX = e.touches[0].clientX - canvas.offsetLeft;
+        currentY = e.touches[0].clientY - canvas.offsetTop;
+        previousX = currentX;
+        previousY = currentY;
+        draw();
+    });
+
+    document.addEventListener("touchend", function (e) {
+        isPainting = false;
+    });
+
+    // finger moves into browser
+    document.addEventListener("touchcancel", function (e) {
+        isPainting = false;
+    });
+
+    document.addEventListener("touchmove", function (e) {
+        if (isPainting) {
+            previousX = currentX;
+            previousY = currentY;
+            currentX = e.touches[0].clientX - canvas.offsetLeft;
+            currentY = e.touches[0].clientY - canvas.offsetTop;
+            draw();
+        }
+    });
+    
 }
 
 // updates the canvas
