@@ -1,0 +1,68 @@
+<html lang='en'>
+
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+  <!-- Custom Styling -->
+  <link rel='stylesheet' href='css/styles.css'>
+  <!-- Custom Font -->
+  <link href='https://fonts.googleapis.com/css?family=Just+Another+Hand&display=swap' rel='stylesheet'></script>
+
+  <!-- How to Draw on Screen -->
+  <script type='text/javascript' src='drawing.js'></script>
+
+  <!-- Math Problems -->
+  <script type="text/javascript" src="maths.js"></script>
+
+  <!-- Use Open CV to work with images: https://docs.opencv.org/4.1.0/opencv.js -->
+  <script src='vendor/opencv.js' type='text/javascript'></script>
+
+  <!-- Use TensorFlow.js to make predictions for model -->
+  <script src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js'> </script>
+
+  <!-- Our Image Data Pre-Processing & Prediction Logic -->
+  <script type='text/javascript' src='processing.js'></script>
+
+</head>
+
+<body>
+
+  <div class='container'>
+
+    <h1 id='title'>Maths Garden</h1>
+
+    <h2 id='question'><span id='n1'>3</span> + <span id='n2'>2</span> = </h2>
+    <!-- <h5>Drawing Canvas:</h5> -->
+    <canvas id='my-canvas'  width='150' height='150'></canvas>
+
+  </div>
+
+  <div class='container'>
+
+      <!-- <button id='restart' class='btn'>Restart</button> -->
+      <button id='checkAnswer' class='btn' value='Check'>Check Answer</button>
+  </div>
+
+
+  <!-- <h5>Processed Image Preview:</h5>
+  <canvas id='canvasOutput' width='28' height='28' style='border:1px solid #0aec0a;'></canvas> -->
+
+
+  <!-- Setup TF Model and Drawing Logic-->
+  <script type='text/javascript'>
+
+ // Number from 0.0 to 1.0
+
+      loadModel();
+      prepareCanvas();
+      nextQuestion();
+
+      //When user preses check answer button
+      document.getElementById('checkAnswer').addEventListener('click', function(){
+        checkAnswer();
+      });
+
+  </script>
+
+</body>
+
+</html>
