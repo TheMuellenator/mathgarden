@@ -22,7 +22,9 @@ Pre-Processing Steps & How to Prepare Image Data
 var model;
 
 async function loadModel() {
-    model = await tf.loadGraphModel("https://angelabauer.github.io/TFJS/data/model.json");
+    model = await tf.loadGraphModel("model/model.json");
+//  model = await tf.loadGraphModel("https://angelabauer.github.io/TFJS/data/model.json");
+
 }
 
 function predictImage() {
