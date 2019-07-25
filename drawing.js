@@ -60,11 +60,6 @@ function prepareCanvas() {
         isPainting = false;
     });
 
-    // Stop if no longer drawing on canvas
-      document.addEventListener('mouseleave', function (e) {
-        isPainting = false;
-    });
-    
     
     // Touch events for mobile web
     document.addEventListener("touchstart", function (e) {
@@ -77,16 +72,16 @@ function prepareCanvas() {
         draw();
     });
 
-    document.addEventListener("touchend", function (e) {
+    canvas.addEventListener("touchend", function (e) {
         isPainting = false;
     });
 
     // finger moves into browser
-    document.addEventListener("touchcancel", function (e) {
+    canvas.addEventListener("touchcancel", function (e) {
         isPainting = false;
     });
 
-    document.addEventListener("touchmove", function (e) {
+    canvas.addEventListener("touchmove", function (e) {
         if (isPainting) {
             e.preventDefault(); // stop scrolling
             previousX = currentX;
